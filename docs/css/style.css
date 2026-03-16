@@ -1,0 +1,484 @@
+/* Tony Alameda - tonyalameda.ca
+   A man of Windsor. A man of sauce. */
+
+:root {
+  --red-deep: #8B0000;
+  --red-dark: #5a0000;
+  --red-mid: #a01010;
+  --gold: #d4a96a;
+  --gold-light: #e8c080;
+  --gold-dim: #a07840;
+  --cream: #f5e6c8;
+  --parchment: #e8d5b0;
+  --bg: #0d0400;
+  --bg-mid: #1a0a00;
+  --bg-card: #200c00;
+  --bg-card-border: #3a1500;
+  --text: #e8d5b0;
+  --text-muted: #a07840;
+  --text-dim: #6b4020;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Lora', Georgia, serif;
+  --max-width: 48rem;
+  --side: clamp(1rem, 5vw, 2.5rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  scrollbar-gutter: stable;
+}
+
+html, body { height: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+
+.site-header {
+  background: var(--red-deep);
+  border-bottom: 4px solid var(--red-dark);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem var(--side);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.header-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-title {
+  font-family: var(--font-display);
+  color: var(--cream);
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.site-title:hover { color: var(--gold); }
+
+.site-tagline {
+  color: var(--gold-dim);
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: var(--cream);
+  font-size: 0.85rem;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  transition: color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--gold);
+}
+
+/* Main */
+
+.site-main {
+  flex: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem var(--side);
+  width: 100%;
+}
+
+/* Home page */
+
+.home-hero {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.hero-photo-col {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-photo {
+  width: 140px;
+  height: 165px;
+  object-fit: cover;
+  display: block;
+  border: 3px solid var(--gold);
+  margin: 0;
+}
+
+.hero-sig {
+  margin-top: 0.6rem;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.hero-bio { flex: 1; }
+
+.hero-name {
+  font-family: var(--font-display);
+  color: var(--gold);
+  font-size: 1.8rem;
+  margin: 0 0 0.15rem;
+  line-height: 1.1;
+}
+
+.hero-location {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin: 0 0 1rem;
+}
+
+.bio-rule {
+  border: none;
+  border-top: 2px solid var(--red-deep);
+  margin: 0.75rem 0 1.25rem;
+}
+
+.hero-bio p {
+  margin-bottom: 1.2em;
+  font-size: 0.95rem;
+}
+
+.lonely-hearts {
+  border: 2px solid #5a4a2a;
+  border-top: 4px double #5a4a2a;
+  border-bottom: 4px double #5a4a2a;
+  padding: 1rem 1.25rem;
+  margin: 1.75rem 0;
+  background: #1a1408;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+}
+
+.lonely-hearts::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px solid #3a2e1a;
+  pointer-events: none;
+}
+
+.lonely-hearts-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.lh-rule {
+  flex: 1;
+  height: 1px;
+  background: #5a4a2a;
+}
+
+.lh-title {
+  color: #8a7040;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: normal;
+}
+
+.lonely-hearts-body p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: #c8b890;
+  font-style: normal;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: justify;
+  hyphens: auto;
+  column-count: 1;
+}
+
+.lh-drop {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 0.75;
+  float: left;
+  margin-right: 0.08em;
+  color: #c8b890;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.bio-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.bio-highlights li {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+  color: var(--gold);
+  font-size: 0.78rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-family: var(--font-body);
+}
+
+/* Inner pages */
+
+.page-content {
+  max-width: 38rem;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  color: var(--gold);
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem;
+  line-height: 1.15;
+}
+
+.page-rule {
+  border: none;
+  border-top: 2px solid var(--red-deep);
+  margin: 0 0 2rem;
+}
+
+/* Divorce page */
+
+.divorce-text p {
+  margin-bottom: 1.4em;
+  font-size: 0.97rem;
+}
+
+.opening-line {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem !important;
+  color: var(--cream);
+}
+
+.divorce-sig {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--gold);
+  font-size: 1.05rem;
+  margin-top: 2rem;
+  border-top: 1px solid var(--bg-card-border);
+  padding-top: 1.25rem;
+}
+
+/* Contact page */
+
+.contact-intro p {
+  font-size: 0.95rem;
+  margin-bottom: 1.2em;
+}
+
+.contact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+}
+
+.contact-row {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--bg-card-border);
+  font-size: 0.9rem;
+}
+
+.contact-row:last-child { border-bottom: none; }
+
+.contact-label {
+  color: var(--text-muted);
+  min-width: 7rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-top: 0.1rem;
+}
+
+.contact-value { color: var(--parchment); }
+
+.contact-value a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-decoration-color: var(--red-deep);
+}
+
+.contact-value a:hover { color: var(--gold-light); }
+
+.contact-note {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: 1.5rem;
+}
+
+.contact-note p { margin: 0; }
+
+/* Links */
+
+a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-decoration-color: var(--red-deep);
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.2em;
+}
+
+a:hover { color: var(--gold-light); }
+
+/* Footer */
+
+.site-footer {
+  min-height: 50px;
+  background: linear-gradient(to bottom, #0d0400 0%, #1e0e00 50%, #2e1800 100%);
+  border-top: 1px solid #5a3000;
+  background-color: #0d0400;
+  display: flex;
+  align-items: flex-end;
+}
+
+.footer-inner {
+  text-align: center;
+  padding: 0.5rem 1rem 1.25rem;
+}
+
+.footer-copy {
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Responsive */
+
+@media (max-width: 560px) {
+  .home-hero {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-photo-col {
+    width: 100%;
+    flex-direction: row;
+    gap: 1.25rem;
+    align-items: flex-end;
+  }
+  .hero-sig { text-align: left; }
+  .header-inner { flex-direction: column; align-items: flex-start; }
+}
+
+/* sig */
+.post-sig {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--bg-card-border);
+}
+
+.post-sig img {
+  width: 180px;
+  opacity: 0.75;
+  filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(0.85);
+  margin: 0;
+}
+
+/* docs */
+
+.doc-lang {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-family: var(--font-body);
+  color: var(--gold-dim);
+  border: 1px solid var(--bg-card-border);
+  padding: 0 0.35rem;
+  border-radius: 3px;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  letter-spacing: 0.05em;
+}
+
+.error-code {
+  font-family: var(--font-display);
+  font-size: 6rem;
+  color: var(--red-deep);
+  margin: 0;
+  line-height: 1;
+}
+
+.error-title {
+  font-family: var(--font-display);
+  color: var(--gold);
+  font-size: 1.5rem;
+  margin: 0.25rem 0 1rem;
+}
+
+.error-text p {
+  font-size: 0.97rem;
+  margin-bottom: 1.4em;
+}
+
+.error-home {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.5rem;
+  border: 1px solid var(--gold-dim);
+  color: var(--gold);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.error-home:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
