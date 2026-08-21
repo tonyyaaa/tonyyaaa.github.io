@@ -5,25 +5,37 @@
   --red-deep: #8B0000;
   --red-dark: #5a0000;
   --red-mid: #a01010;
-  --gold: #d4a96a;
-  --gold-light: #e8c080;
-  --gold-dim: #a07840;
+
+  --gold: #c49a5a;
+  --gold-light: #d8b477;
+  --gold-dim: #80683f;
+
   --cream: #f5e6c8;
   --parchment: #e8d5b0;
+
+  --steel: #77736b;
+  --steel-dark: #3a3935;
+  --concrete: #b8b1a3;
+
   --bg: #0d0400;
   --bg-mid: #1a0a00;
   --bg-card: #200c00;
   --bg-card-border: #3a1500;
+
   --text: #e8d5b0;
   --text-muted: #a07840;
   --text-dim: #6b4020;
+
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body: 'Lora', Georgia, serif;
-  --max-width: 48rem;
-  --side: clamp(1rem, 5vw, 2.5rem);
+
+  --max-width: 52rem;
+  --side: clamp(1.25rem, 5vw, 3rem);
 }
 
-*, *::before, *::after { box-sizing: border-box; }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 html {
   font-kerning: normal;
@@ -31,18 +43,30 @@ html {
   scrollbar-gutter: stable;
 }
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+}
 
 body {
-  background: var(--bg);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.015) 1px,
+      transparent 1px
+    ),
+    var(--bg);
+  background-size: 8px 8px;
+
   color: var(--text);
   font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.8;
+  font-size: 1.05rem;
+  line-height: 1.75;
   margin: 0;
+
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
   -webkit-font-smoothing: antialiased;
 }
 
@@ -50,7 +74,8 @@ body {
 
 .site-header {
   background: var(--red-deep);
-  border-bottom: 4px solid var(--red-dark);
+  border-bottom: 2px solid var(--steel-dark);
+
   position: sticky;
   top: 0;
   z-index: 100;
@@ -59,7 +84,8 @@ body {
 .header-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 1rem var(--side);
+  padding: 1.25rem var(--side);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -82,7 +108,9 @@ body {
   line-height: 1.1;
 }
 
-.site-title:hover { color: var(--gold); }
+.site-title:hover {
+  color: var(--gold-light);
+}
 
 .site-tagline {
   color: var(--gold-dim);
@@ -100,9 +128,10 @@ body {
 
 .nav-link {
   color: var(--cream);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 500;
   text-decoration: none;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   font-family: var(--font-body);
   transition: color 0.2s;
@@ -110,7 +139,7 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--gold);
+  color: var(--gold-light);
 }
 
 /* Main */
@@ -143,7 +172,11 @@ body {
   height: 165px;
   object-fit: cover;
   display: block;
-  border: 3px solid var(--gold);
+
+  border: 2px solid var(--gold-dim);
+  padding: 4px;
+  background: var(--bg-card);
+
   margin: 0;
 }
 
@@ -157,14 +190,17 @@ body {
   line-height: 1.2;
 }
 
-.hero-bio { flex: 1; }
+.hero-bio {
+  flex: 1;
+}
 
 .hero-name {
   font-family: var(--font-display);
   color: var(--gold);
-  font-size: 1.8rem;
+  font-size: clamp(2rem, 6vw, 3.25rem);
   margin: 0 0 0.15rem;
-  line-height: 1.1;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
 }
 
 .hero-location {
@@ -176,7 +212,7 @@ body {
 
 .bio-rule {
   border: none;
-  border-top: 2px solid var(--red-deep);
+  border-top: 1px solid var(--steel-dark);
   margin: 0.75rem 0 1.25rem;
 }
 
@@ -185,13 +221,18 @@ body {
   font-size: 0.95rem;
 }
 
+/* Lonely Hearts */
+
 .lonely-hearts {
-  border: 2px solid #5a4a2a;
-  border-top: 4px double #5a4a2a;
-  border-bottom: 4px double #5a4a2a;
+  border: 1px solid #5a4a2a;
+  border-top: 3px double #5a4a2a;
+  border-bottom: 3px double #5a4a2a;
+
   padding: 1rem 1.25rem;
   margin: 1.75rem 0;
+
   background: #1a1408;
+
   font-family: 'Times New Roman', Times, serif;
   position: relative;
 }
@@ -249,10 +290,13 @@ body {
   font-family: 'Times New Roman', Times, serif;
 }
 
+/* Bio highlights */
+
 .bio-highlights {
   list-style: none;
   padding: 0;
   margin: 1rem 0 0;
+
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -260,12 +304,16 @@ body {
 
 .bio-highlights li {
   background: var(--bg-card);
-  border: 1px solid var(--bg-card-border);
+  border: 1px solid var(--steel-dark);
+
   color: var(--gold);
-  font-size: 0.78rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
+  font-size: 0.75rem;
+
+  padding: 0.3rem 0.65rem;
+  border-radius: 2px;
+
   font-family: var(--font-body);
+  letter-spacing: 0.03em;
 }
 
 /* Inner pages */
@@ -277,15 +325,17 @@ body {
 .page-title {
   font-family: var(--font-display);
   color: var(--gold);
-  font-size: 1.8rem;
+  font-size: clamp(2rem, 6vw, 3rem);
+  letter-spacing: -0.025em;
+
   margin: 0 0 0.5rem;
-  line-height: 1.15;
+  line-height: 1.1;
 }
 
 .page-rule {
   border: none;
-  border-top: 2px solid var(--red-deep);
-  margin: 0 0 2rem;
+  border-top: 1px solid var(--steel-dark);
+  margin: 0 0 2.25rem;
 }
 
 /* Divorce page */
@@ -307,8 +357,9 @@ body {
   font-style: italic;
   color: var(--gold);
   font-size: 1.05rem;
+
   margin-top: 2rem;
-  border-top: 1px solid var(--bg-card-border);
+  border-top: 1px solid var(--steel-dark);
   padding-top: 1.25rem;
 }
 
@@ -321,7 +372,8 @@ body {
 
 .contact-card {
   background: var(--bg-card);
-  border: 1px solid var(--bg-card-border);
+  border: 1px solid var(--steel-dark);
+
   padding: 1.25rem 1.5rem;
   margin: 2rem 0;
 }
@@ -329,23 +381,31 @@ body {
 .contact-row {
   display: flex;
   gap: 1.5rem;
+
   padding: 0.5rem 0;
-  border-bottom: 1px solid var(--bg-card-border);
+  border-bottom: 1px solid var(--steel-dark);
+
   font-size: 0.9rem;
 }
 
-.contact-row:last-child { border-bottom: none; }
+.contact-row:last-child {
+  border-bottom: none;
+}
 
 .contact-label {
   color: var(--text-muted);
   min-width: 7rem;
+
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+
   padding-top: 0.1rem;
 }
 
-.contact-value { color: var(--parchment); }
+.contact-value {
+  color: var(--parchment);
+}
 
 .contact-value a {
   color: var(--gold);
@@ -353,7 +413,9 @@ body {
   text-decoration-color: var(--red-deep);
 }
 
-.contact-value a:hover { color: var(--gold-light); }
+.contact-value a:hover {
+  color: var(--gold-light);
+}
 
 .contact-note {
   color: var(--text-dim);
@@ -362,7 +424,9 @@ body {
   margin-top: 1.5rem;
 }
 
-.contact-note p { margin: 0; }
+.contact-note p {
+  margin: 0;
+}
 
 /* Links */
 
@@ -374,15 +438,18 @@ a {
   text-underline-offset: 0.2em;
 }
 
-a:hover { color: var(--gold-light); }
+a:hover {
+  color: var(--gold-light);
+}
 
 /* Footer */
 
 .site-footer {
   min-height: 50px;
-  background: linear-gradient(to bottom, #0d0400 0%, #1e0e00 50%, #2e1800 100%);
-  border-top: 1px solid #5a3000;
-  background-color: #0d0400;
+
+  background: var(--bg-mid);
+  border-top: 1px solid var(--steel-dark);
+
   display: flex;
   align-items: flex-end;
 }
@@ -402,48 +469,72 @@ a:hover { color: var(--gold-light); }
 /* Responsive */
 
 @media (max-width: 560px) {
+
   .home-hero {
     flex-direction: column;
     align-items: center;
   }
+
   .hero-photo-col {
     width: 100%;
     flex-direction: row;
     gap: 1.25rem;
     align-items: flex-end;
   }
-  .hero-sig { text-align: left; }
-  .header-inner { flex-direction: column; align-items: flex-start; }
+
+  .hero-sig {
+    text-align: left;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
-/* sig */
+/* Signature */
+
 .post-sig {
   margin-top: 2.5rem;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--bg-card-border);
+  border-top: 1px solid var(--steel-dark);
 }
 
 .post-sig img {
   width: 180px;
   opacity: 0.75;
-  filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(0.85);
+
+  filter:
+    invert(1)
+    sepia(1)
+    saturate(2)
+    hue-rotate(5deg)
+    brightness(0.85);
+
   margin: 0;
 }
 
-/* docs */
+/* Documents */
 
 .doc-lang {
   display: inline-block;
+
   font-size: 0.65rem;
   font-family: var(--font-body);
+
   color: var(--gold-dim);
-  border: 1px solid var(--bg-card-border);
+  border: 1px solid var(--steel-dark);
+
   padding: 0 0.35rem;
-  border-radius: 3px;
+  border-radius: 2px;
+
   margin-right: 0.5rem;
   vertical-align: middle;
+
   letter-spacing: 0.05em;
 }
+
+/* Error page */
 
 .error-code {
   font-family: var(--font-display);
@@ -467,14 +558,19 @@ a:hover { color: var(--gold-light); }
 
 .error-home {
   display: inline-block;
+
   margin-top: 1rem;
   padding: 0.6rem 1.5rem;
+
   border: 1px solid var(--gold-dim);
   color: var(--gold);
+
   text-decoration: none;
+
   font-family: var(--font-display);
   font-style: italic;
   font-size: 0.95rem;
+
   transition: border-color 0.2s, color 0.2s;
 }
 
