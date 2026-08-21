@@ -1,4 +1,4 @@
-/* TEAM */
+
 Name: Antony Spaghetti Alameda
 Role: Owner, Author, Man of Windsor
 Location: Windsor, Ontario, Canada
@@ -10,7 +10,7 @@ Via Italia, Windsor
 The Legion Hall Wednesday Polka Crowd
 His Mother, God rest her
 
-/* SITE */
+
 Language: English
 Doctype: HTML5
 Built with: Eleventy
